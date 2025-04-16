@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <title>Indicação de Filmes</title>
+        
+        <!-- Loading Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Loading código CSS -->
+        <link href="css/style.css" rel="stylesheet" media="screen and (color)">
+
+        <!-- Awsome Fonts -->
+        <link href="css/all.min.css" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link href="images/LOGOPNG.png" rel="shortcut icon">
+    </head>
+
+    <body>
+        <!--Begin Header-->
+        <header class="header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
+        
+                        <a href="index.html" rel="home">
+                            <img class="logomenu" src="images/LOGOPNG.png" alt="FILMES" title="Dicas de Filmes">
+                        </a>
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <i class="fas fa-bars"></i>
+                            </span>
+                        </button>
+        
+                        <div class="navbar-collapse collapse" id="navbarCollapse">
+                            <ul class="navbar-nav ml-auto 1  left-menu">
+                                <li><a class="linknav" href="./index.html">Home</a></li>
+                                <li><a class="linknav" href="./listaFilmes.html">Lista de filmes</a></li>
+                                <li><a class="linknav" href="./streams.html">Streams</a></li>
+                            </ul> 
+                            <div><a class="btn btn-menu" href="cadastrar.html" id="botao" role="button"><img class="imgperfil" src="images/perfil.svg"> Cadastro</a></div>
+                        </div>
+                    </nav>
+                </div> 
+            </nav>
+        </header>
+        <!--End Header-->
+
+
+        <!-- --------------- CONTEÚDO DA PÁGINA ----------------->
+
+        <!-- Begin Section 03 -->
+        <section class="section03" id="Section 03">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    <h2 class="sec03titleh2">Página de Filmes!<h2>
+                    <p class="sec03ph1">Guia Completo para Encontrar Seus Filmes e Séries Favoritos - A página de Filmes e Séries do nosso 
+                        foi criada com o objetivo de facilitar a sua busca por produções cinematográficas que estão disponíveis nas plataformas 
+                        de streaming. Nossa missão é garantir que você nunca mais perca a ao procurar novas opções de filmes, tornando sua 
+                        experiência mais prática.</p>
+                    <p class="sec03ph2">Nesta página você pode encontrar alguns facilitadores.</p>
+                    <p class="sec03ph1">Você poderá ver todos os filmes mais recentes, os lançamentos mais aguardados e até mesmo 
+                        aqueles que são clássicos que nunca saem de moda. Cada filme listado terá informações detalhadas sobre 
+                        seu título e sinopse, além da apresentação dos streams para você conferir onde assistir e 
+                        avaliações de cada título.</p>
+                    <p class="sec03ph2">Escolha Seu Gênero Favorito</p>
+                    <p class="sec03ph1">Sabemos que os gostos podem variar muito de pessoa para pessoa, e por isso você terá acesso 
+                        à um filtro por gênero. Ao acessar a página de filmes, você poderá facilmente escolher o gênero 
+                        que mais gosta de assistir. O site irá exibir apenas os filmes e séries dentro dessa categoria, proporcionando 
+                        uma experiência personalizada que reflete seus interesses.</p>
+                    <p class="sec03ph2">Entre, explore e descubra o que assistir agora mesmo!</p>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- End Section 03 -->
+
+
+        <!-- Begin Section 04 -->
+        <section class="section06" id="Section 06">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="sec03pref">Qual sua preferência?</p>
+                    <select id="genero" class="sec03opt" onchange="filtrarFilmes()">
+                        <option value="todos">Todos</option>
+                        <option value="acao">Ação</option>
+                        <option value="comedia">Comédia</option>
+                        <option value="drama">Drama</option>
+                        <option value="terror">Terror</option>
+                        <option value="suspense">Suspense</option>
+                        <option value="romance">Romance</option>
+                        <option value="series">Séries</option>
+                    </select>
+
+                        <div id="filmes">
+                            <div class="filme terror">
+                                <div class="secatblock2">
+                                    <img src="images/campoMedo.jpg" class="imgsec03" alt="...">
+                                    <div class="blocotext2">
+                                       <h3 class="sec03film">O Campo do Medo - Vicenzo Natali.</h3>
+                                        <p class="sec03sin">Nota: 2,5/5 🌕🌕🌗🌑🌑.</p>
+                                        <p class="sec03sin">Considerações: Ideia de roteiro boa, história promissora, na pratica não foi bem 
+                                        executado, o final poderia ser melhor trabalhado. </p>
+                                    </div>
+                                </div>   
+                            </div>
+
+                            <div class="filme romance">
+                                <div class="secatblock2">
+                                    <img src="images/primeiroAmor.jpg" class="imgsec03" alt="...">
+                                    <div class="blocotext2">
+                                       <h3 class="sec03film">Meu primeiro amor - Howard Zieff.</h3>
+                                       <p class="sec03sin">Nota:4,8/5 🌕🌕🌕🌕🌖.</p>
+                                       <p class="sec03sin">Considerações: Não teve foco no desenvolvimento dos personagens, 
+                                           bons atores, bom roteiro, filme sentimental. </p>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <div class="filme series">
+                                <div class="secatblock2">
+                                    <img src="images/MonstersNetflix.jpg" class="imgsec03" alt="...">
+                                    <div class="blocotext2">
+                                       <h3 class="sec03film">Irmãos Menendez: Monstros - Ryan Murphy.</h3>
+                                       <p class="sec03sin">Nota:4,8/5 🌕🌕🌕🌖🌑.</p>
+                                       <p class="sec03sin">Considerações: Bom roteiro, trouxe visibilidade para história, porém 
+                                           foge da realidade e a série é bem pesada. </p>
+                                    </div>
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Section 04 -->
+
+        <!-- Begin footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="footerp1">
+                            Todos os direitos reservados © <span id="footer-year"></span> - Luz, Câmera e Dicas! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End footer-->
+
+
+        <!-- Load JS =============================-->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.scrollTo-min.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
