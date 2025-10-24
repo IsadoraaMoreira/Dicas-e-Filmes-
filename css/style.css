@@ -749,10 +749,22 @@ a:hover{
   margin: 0;
 }
 
-.sec05title{
+.sec05title {
   font-family: 'poppins-Bold';
   font-size: 16px;
-  color:#000;
+  color: #000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sec05title:hover {
+  font-family: 'poppins-Bold';
+  font-size: 16px;
+  color: #970700;
+  background: none;
+  border: none;
 }
 
 .sec05ph2 {
