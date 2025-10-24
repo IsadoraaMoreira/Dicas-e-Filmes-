@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <title>Indicação de Filmes</title>
+        
+        <!-- Loading Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Loading código CSS -->
+        <link href="css/style.css" rel="stylesheet" media="screen and (color)">
+
+        <!-- Awsome Fonts -->
+        <link href="css/all.min.css" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link href="images/LOGOPNG.png" rel="shortcut icon">
+    </head>
+
+    <body>
+        <!--Begin Header-->
+        <header class="header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
+        
+                        <a href="./index.html" rel="home">
+                            <img class="logomenu" src="images/LOGOPNG.png" alt="FILMES" title="Dicas de Filmes">
+                        </a>
+        
+                        <div class="navbar-collapse collapse" id="navbarCollapse">
+                            <ul class="navbar-nav ml-auto 1  left-menu">
+                                <li><a class="linknav" href="./index.html">Home</a></li>
+                                <li><a class="linknav" href="./listaFilmes.html">Lista de filmes</a></li>
+                                <li><a class="linknav" href="./streams.html">Streams</a></li>
+                            </ul> 
+                            <div><a class="btn btn-menu" href="./cadastrar.html" role="button"><img class="imgperfil" src="images/perfil.svg"> Cadastro</a></div>
+                        </div>
+                    </nav>
+                </div> 
+            </nav>
+        </header>
+        <!--End Header-->
+
+
+        <!-- --------------- CONTEÚDO DA PÁGINA ----------------->
+
+        <!-- Begin Section 09 -->
+        <section class="section09" id="Section09">
+            <div class="container">
+                <h2 class="sec09titleh2">Comentários sobre o Filme</h2>
+
+                <!-- Formulário de Comentário -->
+                <form id="commentForm" class="comment-form">
+                <textarea id="commentInput" placeholder="Escreva seu comentário..." required></textarea>
+                <button type="submit">Enviar</button>
+                </form>
+
+                <!-- Lista de Comentários -->
+                <div id="commentsList" class="comments-list">
+                <p class="no-comments">Ainda não há comentários. Seja o primeiro a comentar! 🎥</p>
+                </div>
+            </div>
+        </section>
+        <!-- End Section 09 -->
+
+        <!-- Begin footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="footerp1">
+                            Todos os direitos reservados © <span id="footer-year"></span> - Luz, Câmera e Dicas! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End footer-->
+
+
+        <!-- Load JS =============================-->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.scrollTo-min.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
