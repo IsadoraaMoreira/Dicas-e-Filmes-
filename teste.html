@@ -1,0 +1,46 @@
+<button id="themeToggle">🌙 Modo Escuro</button>
+
+<style>
+  :root {
+  /* Tema claro */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #970700;
+}
+
+body.dark-mode {
+  /* Tema escuro */
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #ff4d4d;
+}
+
+/* Aplicando as variáveis */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+
+button, .navbar, .comment-form textarea {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+</style>
+
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+  const body = document.body;
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      toggleBtn.textContent = "☀️ Modo Claro";
+    } else {
+      toggleBtn.textContent = "🌙 Modo Escuro";
+    }
+  });
+
+</script>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <title>Indicação de Filmes</title>
+        
+        <!-- Loading Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Loading código CSS -->
+        <link href="css/style.css" rel="stylesheet" media="screen and (color)">
+
+        <!-- Awsome Fonts -->
+        <link href="css/all.min.css" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link href="images/LOGOPNG.png" rel="shortcut icon">
+    </head>
+
+    <body>
+        <!--Begin Header-->
+        <header class="header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg">
+        
+                        <a href="./index.html" rel="home">
+                            <img class="logomenu" src="images/LOGOPNG.png" alt="FILMES" title="Dicas de Filmes">
+                        </a>
+        
+                        <div class="navbar-collapse collapse" id="navbarCollapse">
+                            <ul class="navbar-nav ml-auto 1  left-menu">
+                                <li><a class="linknav" href="./index.html">Home</a></li>
+                                <li><a class="linknav" href="./listaFilmes.html">Lista de filmes</a></li>
+                                <li><a class="linknav" href="./streams.html">Streams</a></li>
+                            </ul> 
+                            <div><a class="btn btn-menu" href="./cadastrar.html" role="button"><img class="imgperfil" src="images/perfil.svg"> Cadastro</a></div>
+                        </div>
+                    </nav>
+                </div> 
+            </nav>
+        </header>
+        <!--End Header-->
+
+
+        <!-- --------------- CONTEÚDO DA PÁGINA ----------------->
+
+        <!-- Begin Section 06 -->
+        <section class="section06" id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <main class="cadastrarBox">
+                            <h2 class="cadastrotitleh2">Crie sua Conta</h2>
+                            <p class="cadastroph1">Cadastre-se para salvar suas listas de filmes e ter recomendações personalizadas.</p>
+                            
+                            <form action="#" method="post" class="form-cadastro">
+                                <label for="nome" class="campoCadastro">Nome completo</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                                <label for="email" class="campoCadastro">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                                <label for="senha" class="campoCadastro">Senha</label>
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+                                <label for="confirma" class="campoCadastro">Confirmar Senha</label>
+                                <input type="password" id="confirma" name="confirma" placeholder="Confirme sua senha" required>
+
+                                <button type="submit">Cadastrar</button>
+                                <p class="cadastroph2">Ja possui cadastro?</p><a class="buttonLogin" href="./login.html">Fazer login</a>
+                            </form>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Section 06 -->
+
+        <!-- Begin footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="footerp1">
+                            Todos os direitos reservados © <span id="footer-year"></span> - Luz, Câmera e Dicas! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End footer-->
+
+
+        <!-- Load JS =============================-->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.scrollTo-min.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

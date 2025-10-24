@@ -1,5 +1,5 @@
 /*
-Nome da Página HTML
+Luz, Câmera e Dicas!
 */
 
 /* --- 
@@ -11,18 +11,28 @@ Sequência do CSS Da Página: (use esses nomes a pesquisa rápida no código.)
     01. Section 01
     02. Section 02
 04. BEGIN PAGE LISTA DE FILMES
-    0.1 Section 04
+    01. Section 03
+    02. Section 04
 05. BEGIN PAGE STREAMS
     01. Section 05
-    02. Section 06
-    03. Section 07
 06.BEGIN PAGE CADASTRO
+    01. Section 06
+07. BEGIN PAGE LOGIN
+    01. Section 07
+08. BEGIN PAGE PERFIL
     01. Section 08
-    02. Section 09
-07. Footer
-08. Media Queries
-
-
+09. BEGIN PAGE COMETARIOS
+    01. Section 09
+09. Footer
+10. Media Queries
+    01. Section 01
+    02. Section 02
+    03. Section 03
+    04. Section 04
+    05. Section 05
+    06. Section 06
+    07. Section 07
+    08. Section 08
 
 /* ========================================================== */
 /* 			                01. BEGIN GERAL                       */
@@ -73,9 +83,9 @@ a:hover{
 /* 			            02. BEGIN NAV-BAR                         */
 /* ========================================================== */
 .navbar {
- width: 100%;
- z-index: 9999;
- padding:4px 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 4px 0;
 }
 
 .navbar-brand{
@@ -137,17 +147,18 @@ a:hover{
  letter-spacing: 1px;
  text-transform: uppercase;
 }*/
+
 .navbar-nav {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
 }
+
+
 .linknav{
   color: #FBF7F6 !important;
   font-size: 16px !important;
@@ -192,20 +203,27 @@ a:hover{
  border: 1px solid #f6a206;
 }
 
-.navbar-expand-lg .navbar-collapse {
- display: flex !important;
+.navbar-menu {
+ display: flex;
  flex-basis: auto;
  justify-content: flex-end;
+ background-color: #000;
 }
-.imgperfil{
- width: 28%;
+
+.navbar-menu li {
+  letter-spacing: 3px;
+ margin-left: 32px;
+}
+
+.imgperfil {
+  width: 20px;
+  height: 20px;
 }
 
 .btn-menu, .btn-menu:hover {
  color: #fff;
  background-color: #000;
  border-color: #000;
- padding: 0px !important;
  border-radius: 25px;
  font-family: 'Poppins-Regular';
 
@@ -217,6 +235,59 @@ a:hover{
 .logomenu{
  width: 20%;
 }
+
+.mobile-menu{
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div{
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+}
+
+@media (max-width: 999px){
+  body{
+    overflow-x: hidden;
+  }
+  .navbar-nav {
+    flex-direction: column; /* no mobile continua empilhado */
+    align-items: center;
+    justify-content: space-around;
+  }
+  .navbar-menu{
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #000;
+    flex-direction: column;
+    transform: translateX(100%);
+  }
+  .mobile-menu{
+    display: block;
+  }
+}
+
+.navbar-menu.active{
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes navlinkFade {
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 /* ========================================================== */
 /*                   02. END NAV-BAR                          */
 /* ========================================================== */
@@ -237,10 +308,9 @@ a:hover{
 
 .sec01titleh1{
  font-family: 'Poppins-Bold';
- font-size: 40px;
- line-height: 52px;
- margin: 0;
- padding: 68px 0 10px 0;
+ font-size: 2.5rem;
+ line-height: 1.2;
+ padding: 2rem 0 1rem;
  text-align: left;
  color: #970700
 }
@@ -432,8 +502,6 @@ a:hover{
   color: #970700;
 }
 
-
-/* ------------------------------ */
 .sec02phinte{
   font-family: 'poppins-Regular';
   font-size: 17px;
@@ -443,23 +511,23 @@ a:hover{
   margin: 0;
   }
   
-  .sec02ph3{
+.sec02ph3{
   font-family: 'poppins-Regular';
   font-size: 17px;
   line-height: 26px;
   text-align: left;
   padding: 0 72px 20px 0;
   margin: 0;
-  }
+}
   
-  .sec02ph4{
+.sec02ph4{
   font-family: 'poppins-Regular';
   font-size: 17px;
   line-height: 26px;
   text-align: left;
   padding: 0 72px 20px 0;
   margin: 0;
-  }
+}
 
 .categoriasimgsblock{
   width: 20%;
@@ -467,15 +535,18 @@ a:hover{
 }
 
 /*End Section 02*/
+/* ========================================================== */
+/*                   03. END HOME PAGE                        */
+/* ========================================================== */
 
 /* ========================================================== */
-/* 			       06. BEGIN PAGE LISTA DE FILMES                 */
+/* 			       04. BEGIN PAGE LISTA DE FILMES                 */
 /* ========================================================== */
-/*End Section 03*/
+/*Begin Section 03*/
 .section03 {
   position: relative;
   padding-top: 108px;
-  padding-bottom: 26px;
+  padding-bottom: 55px;
   background: #FBF7F6;
   background-size: cover;
   z-index: 10;
@@ -485,7 +556,7 @@ a:hover{
 .sec03titleh2{
   font-family: 'Poppins-Bold';
   font-size: 40px;
-  line-height: 52px;
+  line-height: 100px;
   margin: 0;
   text-align: center;
   padding: 0 0 10px 0;
@@ -498,8 +569,43 @@ a:hover{
   font-size: 17px;
   line-height: 26px;
   text-align: left;
-  padding: 0 52px 20px 0;
+  padding: 10px 52px 20px 0;
   margin: 0;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.cardsec03 {
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 0 5px 0;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardsec03:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.cardsec03-title {
+  font-family: 'Poppins-Bold';
+  font-size: 20px;
+  color: #970700;
+  margin-bottom: 12px;
+}
+
+.cardsec03-text {
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color: #333;
+  line-height: 24px;
 }
 
 .sec03ph2{
@@ -508,41 +614,70 @@ a:hover{
   font-size: 17px;
   line-height: 26px;
   text-align: left;
-  padding: 0 52px 20px 0;
+  padding: 30px  52px 20px 0;
   margin: 0;
 }
+/*End Section 03*/
 
-.sec03opt{
-  font-family: 'poppins-Medium';
-  color: #000;
-  background-color: #fff;
-  border-color: #fff;
-  font-size: 20px;
-  line-height: 26px;
-  text-align: left;
+/*Begin Section 04*/
+.section04{
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 55px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
 }
 
-.sec03pref{
+.cardFilme{
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 0 5px 0;
+  padding: 20px 23px 1px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sec04opt{
   font-family: 'poppins-Medium';
   color: #970700;
-  font-size: 20px;
+  background-color: #FBF7F6;
+  border: 2px solid #970700;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 10px 15px;
+  text-align: left;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 160px;
+  position: relative;
+  
+}
+
+.sec04pref{
+  font-family: 'poppins-Medium';
+  color: #970700;
+  font-size: 23px;
   line-height: 26px;
   text-align: left;
   padding: 20px 52px 20px 0;
   margin: 0;
 }
 
-.sec03film{
+.sec04film{
   font-family: 'poppins-Regular';
   color: #000;
   font-size: 18px;
   line-height: 26px;
   text-align: left;
   padding: 0 52px 20px 0;
-  margin: 0;
+  margin: -30px 0 0 0;
 }
 
-.sec03sin{
+.sec04sin{
   font-family: 'poppins-Regular';
   color: #000;
   font-size: 16px;
@@ -552,18 +687,37 @@ a:hover{
   margin: 0;
 }
 
-.imgsec03{
+.imgsec04{
   width: 13%;
   position: absolute;
 }
 
-/*End Section 03*/
+.actionBtn img{
+  max-width: 24px;
+  cursor: pointer;
+
+}
+
+.actionBtn .left img{
+  margin-right: 8px;
+}
+
+.likes , .likes2 , .likes3{
+  font-weight: 500;
+  margin-top: 5px;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color:#970700
+}
+
+/*End Section 04*/
 
 /* ========================================================== */
-/* 			       06. END PAGE LISTA DE FILMES                   */
+/* 			       04. END PAGE LISTA DE FILMES                   */
 /* ========================================================== */
+
 /* ========================================================== */
-/* 			            06. BEGIN PAGE STREAMS                    */
+/* 			            05. BEGIN PAGE STREAMS                    */
 /* ========================================================== */
 /*Begin Section 05*/
 .section05 {
@@ -634,12 +788,421 @@ a:hover{
   width: 70%;
   position: absolute;
 }
+/* End Section 05 */
 
 /* ========================================================== */
-/* 			            06. END PAGE STREAMS                      */
+/* 			            05. END PAGE STREAMS                      */
 /* ========================================================== */
+
 /* ========================================================== */
-/* 			             06. BEGIN FOOTER                         */
+/* 			           06. BEGIN PAGE CADASTRO                    */
+/* ========================================================== */
+/* Begin Section 06 */
+.section06{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.cadastrarBox {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.cadastrotitleh2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 10px;
+}
+
+.cadastroph1 {
+  font-family: 'Poppins-Regular';
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.campoCadastro{
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+  text-align: left;
+}
+
+.form-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.form-cadastro label {
+  margin: 0 0 -10px 0;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+}
+
+.form-cadastro input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  margin: 10px 0 0 0;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #b00610;
+}
+
+.cadastroph2{
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #333;
+  margin-top: 15px;
+  display: inline;
+}
+
+.buttonLogin{
+  text-align: right;
+  margin: -50px 0 0 5px;
+  font-family: 'Poppins-Bold';
+  font-size: 14px;
+  color: #e50914;
+}
+
+.buttonLogin:hover {
+  color: #b00610;
+  text-decoration: underline;
+}
+
+/* End Section 06 */
+
+/* ========================================================== */
+/* 			            06. END PAGE CADASTRO                     */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            07. BEGIN PAGE LOGIN                      */
+/* ========================================================== */
+/* Begin Section 07 */
+.section07{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.loginBox {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.logintitleh2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 10px;
+}
+
+.loginph1 {
+  font-family: 'Poppins-Regular';
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.campoLogin {
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+  text-align: left;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.form-login input {
+  margin: -15px 0 0 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-login button {
+  margin: 10px 0 0 0;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-login button:hover {
+  background: #b00610;
+}
+
+.loginExtra {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.loginExtra a {
+  color: #e50914;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.loginExtra a:hover {
+  text-decoration: underline;
+}
+/* End Section 07 */
+
+/* ========================================================== */
+/* 			            07. END PAGE LOGIN                        */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            08. BEGIN PAGE PERFIL                     */
+/* ========================================================== */
+/* Begin Section 08 */
+.section08{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.perfil-card {
+  max-width: 800px;
+  margin: 120px auto 50px;
+  padding: 30px;
+  background: #fafafa; /* seguindo sua paleta */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #000;
+}
+
+.perfil-card img.avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #e50914;
+  margin-bottom: 15px;
+}
+
+.perfil-card h2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 5px;
+}
+
+.perfil-card p {
+  font-family: 'Poppins-Regular';
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.perfil-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.perfil-info label {
+  font-family: 'Poppins-Bold';
+  font-size: 14px;
+  color: #000;
+}
+
+.change-password input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+}
+
+.change-password button {
+  margin-top: 10px;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.change-password button:hover {
+  background: #b00610;
+}
+
+.movies-list h5 {
+  font-family: 'Poppins-Bold';
+  color: #e50914;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.movies-list li {
+  background-color: #FBF7F6;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  color: #000;
+  font-family: 'Poppins-Regular';
+}
+/* End Section 08 */
+
+/* ========================================================== */
+/* 			            08. END PAGE PERFIL                       */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            09. BEGIN PAGE COMETARIOS                 */
+/* ========================================================== */
+/* Begin Section 09 */
+.section09 {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background: #fff;
+  background-size: cover;
+  z-index: 10;
+}
+
+.sec09titleh2 {
+  font-family: 'Poppins-Bold';
+  font-size: 36px;
+  line-height: 50px;
+  margin: 50px 0 30px;
+  text-align: center;
+  color: #970700;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.comment-form textarea {
+  resize: none;
+  padding: 15px;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.comment-form textarea:focus {
+  border-color: #970700;
+  box-shadow: 0 0 8px rgba(151, 7, 0, 0.2);
+}
+
+.comment-form button {
+  background: #970700;
+  color: #fff;
+  font-family: 'Poppins-Medium';
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comment-form button:hover {
+  background: #b80c00;
+}
+
+.comments-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment {
+  background: #FBF7F6;
+  padding: 15px;
+  border-radius: 15px;
+  font-family: 'Poppins-Regular';
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.no-comments {
+  text-align: center;
+  font-family: 'Poppins-Regular';
+  color: #666;
+  font-size: 15px;
+}
+/* End Section 09 */
+
+/* ========================================================== */
+/* 			            09. BEGIN PAGE COMENTARIOS                */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			             10. BEGIN FOOTER                         */
 /* ========================================================== */
 .footer{
  padding: 12px 0 10px 0;
@@ -657,29 +1220,923 @@ a:hover{
  font-family: 'Poppins-Regular';
 }
 /* ========================================================== */
-/*                     06. END FOOTER                         */
+/*                     10. END FOOTER                         */
 /* ========================================================== */
 
 /* ========================================================== */
-/* 			         07. BEGIN MEDIA QUERIES                      */
+/* 			         11. BEGIN MEDIA QUERIES                      */
 /* ========================================================== */
 
 /*Dispositivos small*/
-@media screen and (max-width: 600px) {
- /*Begin Nav-Bar*/
- .navbar-fixed-top {
-   background-color: #038654!important;
-   border-bottom: 0px solid #038654;
-   display: none;
+@media screen and (max-width: 767px) {
+  /*Begin Nav-Bar*/
+  .navbar-fixed-top {
+    background-color: #000!important;
+    border-bottom: 0px solid #000;
+  }
+ 
+  .left-menu{
+    margin-left: 0px !important;
+    margin-top: 32px;
+  }
+  /*End Nav-Bar*/
+ 
+  /* ========================================================== */
+  /*                 03. BEGIN PAGE HOME                        */
+  /* ========================================================== */
+ 
+  /*Begin Section 01*/
+.section01 {
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+ }
+ 
+ .sec01titleh1{
+  font-family: 'Poppins-Bold';
+  font-size: 35px;
+  line-height: 52px;
+  margin: 0;
+  padding: 68px 0 10px 0;
+  text-align: center;
+  color: #970700
+ }
+ 
+ .sec01ph1{
+  font-family: 'poppins-Regular';
+  font-size: 15px;
+  line-height: 26px;
+  text-align: justify;
+  padding: 0 72px 20px 0;
+  margin: 0;
+ }
+ 
+ .sec01ph2{
+  font-family: 'poppins-Regular';
+  font-size: 15px;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 52px 20px 0;
+  margin: 0;
+ }
+ 
+ .sec01titleh2{
+  font-family: 'Poppins-Bold';
+  font-size: 26px;
+  line-height: 52px;
+  padding: 0 0 12px 0;
+  text-align: center;
+  color: #970700;
+  margin: 0 0 0 63px;
+ }
+ 
+ .card-img-sec01{
+   width: 88%;
+ }
+ 
+ .sec01phinte{
+  color:#000;
+  font-family: 'Poppins-Bold';
+  font-size: 17px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0px 0 20px 0;
+  text-align: center;
+ }
+ 
+ .bloco1, .bloco3{
+  text-align: left;
+  
+ }
+ .bloco2, .bloco4{
+  text-align: right;
+  margin-top: -196px;
+  margin-bottom: 23px;
+ }
+ 
+ .card, .card2, .card3, .card4{
+  width: 10rem;
+ }
+ .card {
+  position: absolute;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FBF7F6;
+  background-clip: border-box;
+  border: none;
+  border-radius: .25rem;
+ }
+ 
+ .card2 {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FBF7F6;
+  background-clip: border-box;
+  border: none;
+  border-radius: .25rem;
+  align-content: flex-end;
+}
+ 
+ .card3 {
+  position: absolute;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FBF7F6;
+  background-clip: border-box;
+  border: none;
+  border-radius: .25rem;
+ }
+ 
+ .card4 {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FBF7F6;
+  background-clip: border-box;
+  border: none;
+  border-radius: .25rem;
+  align-content: flex-end;
+}
+ /*End Section 01*/
+ 
+ /*Begin Section 02*/
+ .section02 {
+  position: relative;
+  padding-top: 65px;
+  padding-bottom: 0px;
+  background: #fff;
+  /*background: url(../images/backsec02.jpg) top center no-repeat;*/
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+ }
+ 
+ .sec02title1{
+  font-family: 'Poppins-Bold';
+  font-size: 40px;
+  line-height: 52px;
+  margin: 0;
+  text-align: center;
+  padding: 0 0 10px 0;
+  color: #970700;
  }
 
- .left-menu{
-   margin-left: 0px !important;
-   margin-top: 32px;
+ .sec02ph1{
+  font-family: 'poppins-Regular';
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  padding: 0 0 5px;
+}
+ 
+ .blocotext1{
+  position: relative;
+  margin: 43px 0 55px 114px
  }
- /*End Nav-Bar*/
+ 
+ .blocotext2{
+  position: relative;
+  margin: 43px 0 15px 114px
+ }
+ 
+ .blocotext3{
+  position: relative;
+  margin: 43px 0 55px 114px
+ }
+ 
+ .blocotext4{
+  position: relative;
+  margin: 43px 0 55px 114px
+ }
+ 
+ .sec02title{
+  font-family: 'poppins-Bold';
+  font-size: 16px;
+  color:#000;
+ }
+ 
+ .sec02ph2 {
+   font-family: 'Poppins-Regular';
+   font-size: 16px;
+   color: #000;
+   line-height: 26px;
+   text-align: left;
+   padding: 0 72px 20px 0;
+   margin: 0;
+ }
+ 
+ .sec02ph2:hover {
+   color: #970700;
+ }
+ 
+ .sec02phinte{
+   font-family: 'poppins-Regular';
+   font-size: 17px;
+   line-height: 26px;
+   text-align: left;
+   padding: 0 72px 20px 0;
+   margin: 0;
+   }
+   
+ .sec02ph3{
+   font-family: 'poppins-Regular';
+   font-size: 17px;
+   line-height: 26px;
+   text-align: left;
+   padding: 0 72px 20px 0;
+   margin: 0;
+ }
+   
+ .sec02ph4{
+   font-family: 'poppins-Regular';
+   font-size: 17px;
+   line-height: 26px;
+   text-align: left;
+   padding: 0 72px 20px 0;
+   margin: 0;
+ }
+ 
+ .categoriasimgsblock{
+   width: 17%;
+   position: absolute;
+ }
+ 
+ /*End Section 02*/
+ /* ========================================================== */
+ /*                   03. END HOME PAGE                        */
+ /* ========================================================== */
+
+/* ========================================================== */
+/* 			       04. BEGIN PAGE LISTA DE FILMES                 */
+/* ========================================================== */
+/*Begin Section 03*/
+.section03 {
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 55px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+ }
+
+.sec03titleh2{
+  font-family: 'Poppins-Bold';
+  font-size: 40px;
+  line-height: 100px;
+  margin: 0;
+  text-align: center;
+  padding: 0 0 10px 0;
+  color: #970700;
+}
+
+.sec03ph1{
+  font-family: 'poppins-Regular';
+  color: #000;
+  font-size: 17px;
+  line-height: 26px;
+  text-align: left;
+  padding: 10px 52px 20px 0;
+  margin: 0;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.cardsec03 {
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 0 5px 0;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardsec03:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.cardsec03-title {
+  font-family: 'Poppins-Bold';
+  font-size: 20px;
+  color: #970700;
+  margin-bottom: 12px;
+}
+
+.cardsec03-text {
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color: #333;
+  line-height: 24px;
+}
+
+.sec03ph2{
+  font-family: 'poppins-Medium';
+  color: #000;
+  font-size: 17px;
+  line-height: 26px;
+  text-align: left;
+  padding: 30px  52px 20px 0;
+  margin: 0;
+}
+/*End Section 03*/
+
+/*Begin Section 04*/
+.section04{
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 55px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.cardFilme{
+  background: #fff;
+  border-radius: 20px;
+  margin: 0 0 5px 0;
+  padding: 20px 23px 1px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sec04opt{
+  font-family: 'poppins-Medium';
+  color: #970700;
+  background-color: #FBF7F6;
+  border: 2px solid #970700;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 10px 15px;
+  text-align: left;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 160px;
+  position: relative;
+  
+}
+
+.sec04pref{
+  font-family: 'poppins-Medium';
+  color: #970700;
+  font-size: 23px;
+  line-height: 26px;
+  text-align: left;
+  padding: 20px 52px 20px 0;
+  margin: 0;
+}
+
+.sec04film{
+  font-family: 'poppins-Regular';
+  color: #000;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 52px 20px 0;
+  margin: -30px 0 0 0;
+}
+
+.sec04sin{
+  font-family: 'poppins-Regular';
+  color: #000;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 52px 20px 0;
+  margin: 0;
+}
+
+.imgsec04{
+  width: 13%;
+  position: absolute;
+}
+
+.actionBtn img{
+  max-width: 24px;
+  cursor: pointer;
+
+}
+
+.actionBtn .left img{
+  margin-right: 8px;
+}
+
+.likes , .likes2 , .likes3{
+  font-weight: 500;
+  margin-top: 5px;
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color:#970700
+}
+
+/*End Section 04*/
+
+/* ========================================================== */
+/* 			       04. END PAGE LISTA DE FILMES                   */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            05. BEGIN PAGE STREAMS                    */
+/* ========================================================== */
+/*Begin Section 05*/
+.section05 {
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 450px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.sec05titleh1{
+  font-family: 'Poppins-Bold';
+  font-size: 40px;
+  line-height: 52px;
+  margin: 0;
+  text-align: left;
+  padding: 10px 0 10px 0;
+  color: #970700;
+}
+
+.sec05ph1{
+  font-family: 'poppins-Regular';
+  font-size: 17px;
+  line-height: 26px;
+  text-align: justify;
+  padding: 0 72px 20px 0;
+  margin: 0;
+}
+
+.sec05title{
+  font-family: 'poppins-Bold';
+  font-size: 16px;
+  color:#000;
+}
+
+.sec05ph2 {
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color: #000;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 72px 20px 0;
+  margin: 0;
+}
+
+.sec05ph2:hover {
+  color: #000;
+}
+
+.categoriasimgsblock1{
+  width: 10%;
+  position: absolute;
+}
+
+.sec05ph3{
+  font-family: 'Poppins-Regular';
+  font-size: 16px;
+  color: #000;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 72px 0px 0;
+  margin: 0;
+}
+
+.imgsec05{
+  width: 70%;
+  position: absolute;
+}
+/* End Section 05 */
+
+/* ========================================================== */
+/* 			            05. END PAGE STREAMS                      */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			           06. BEGIN PAGE CADASTRO                    */
+/* ========================================================== */
+/* Begin Section 06 */
+.section06{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.cadastrarBox {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.cadastrotitleh2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 10px;
+}
+
+.cadastroph1 {
+  font-family: 'Poppins-Regular';
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.campoCadastro{
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+  text-align: left;
+}
+
+.form-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.form-cadastro label {
+  margin: 0 0 -10px 0;
+  font-size: 14px;
+  color: #222;
+  font-weight: bold;
+}
+
+.form-cadastro input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  margin: 10px 0 0 0;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #b00610;
+}
+
+.cadastroph2{
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #333;
+  margin-top: 15px;
+  display: inline;
+}
+
+.buttonLogin{
+  text-align: right;
+  margin: -50px 0 0 5px;
+  font-family: 'Poppins-Bold';
+  font-size: 14px;
+  color: #e50914;
+}
+
+.buttonLogin:hover {
+  color: #b00610;
+  text-decoration: underline;
+}
+
+/* End Section 06 */
+
+/* ========================================================== */
+/* 			            06. END PAGE CADASTRO                     */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            07. BEGIN PAGE LOGIN                      */
+/* ========================================================== */
+/* Begin Section 07 */
+.section07{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.loginBox {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.logintitleh2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 10px;
+}
+
+.loginph1 {
+  font-family: 'Poppins-Regular';
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.campoLogin {
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+  text-align: left;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.form-login input {
+  margin: -15px 0 0 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-login button {
+  margin: 10px 0 0 0;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-login button:hover {
+  background: #b00610;
+}
+
+.loginExtra {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.loginExtra a {
+  color: #e50914;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.loginExtra a:hover {
+  text-decoration: underline;
+}
+/* End Section 07 */
+
+/* ========================================================== */
+/* 			            07. END PAGE LOGIN                        */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            08. BEGIN PAGE PERFIL                     */
+/* ========================================================== */
+/* Begin Section 08 */
+.section08{
+  position: relative;
+  padding-top: 108px;
+  padding-bottom: 26px;
+  background: #FBF7F6;
+  background-size: cover;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.perfil-card {
+  max-width: 800px;
+  margin: 120px auto 50px;
+  padding: 30px;
+  background: #fafafa; /* seguindo sua paleta */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #000;
+}
+
+.perfil-card img.avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #e50914;
+  margin-bottom: 15px;
+}
+
+.perfil-card h2 {
+  font-family: 'Poppins-Bold';
+  font-size: 22px;
+  color: #e50914;
+  margin-bottom: 5px;
+}
+
+.perfil-card p {
+  font-family: 'Poppins-Regular';
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.perfil-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.perfil-info label {
+  font-family: 'Poppins-Bold';
+  font-size: 14px;
+  color: #000;
+}
+
+.change-password input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  color: #000;
+}
+
+.change-password button {
+  margin-top: 10px;
+  background: #e50914;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.change-password button:hover {
+  background: #b00610;
+}
+
+.movies-list h5 {
+  font-family: 'Poppins-Bold';
+  color: #e50914;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.movies-list li {
+  background-color: #FBF7F6;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  color: #000;
+  font-family: 'Poppins-Regular';
+}
+/* End Section 08 */
+
+/* ========================================================== */
+/* 			            08. END PAGE PERFIL                       */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			            09. BEGIN PAGE COMETARIOS                 */
+/* ========================================================== */
+/* Begin Section 09 */
+@media (max-width: 768px) {
+  .sec09titleh2 {
+    font-size: 28px;
+    line-height: 38px;
+    margin: 30px 0 20px;
+    padding: 0 15px;
+  }
+
+  .comment-form {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .comment-form textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .comment-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .comments-list {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .comment {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sec09titleh2 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .comment-form textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .comment-form button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .comment {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+/* End Section 09 */
+
+/* ========================================================== */
+/* 			            09. BEGIN PAGE COMENTARIOS                */
+/* ========================================================== */
+
+/* ========================================================== */
+/* 			             10. BEGIN FOOTER                         */
+/* ========================================================== */
+  /*Begin footer*/
+  .footerp1 {
+    margin-bottom: 5px;
+    line-height: 20px;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  /*End footer*/
 
  /* ========================================================== */
- /*                 03. BEGIN PAGE HOME                        */
+ /*                 11. END MEDIA QUERIES                      */
  /* ========================================================== */
 }
